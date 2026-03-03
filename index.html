@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ravi Jha — Full Stack Engineer</title>
+  <meta name="description"
+    content="Full-stack engineer who builds real products — crypto dashboards, geo-games, browser extensions, and mobile apps. Clean code, fast interfaces, honest execution.">
+  <meta name="author" content="Ravi Jha">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ======== NAVIGATION ======== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="#" class="nav-logo">raviJha<span>.</span></a>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="nav-cta">Get in Touch</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero section" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-greeting">Full Stack Engineer</p>
+        <h1 class="hero-title">I build products<br>that <span class="accent">work.</span></h1>
+        <p class="hero-description">I'm Ravi — a full-stack engineer who ships real tools: crypto dashboards tracking
+          60+ live assets, geo-guessing games with Mapbox, AI-powered browser extensions, and mobile apps used for
+          Canadian immigration prep. I care about clarity, speed, and code that doesn't need excuses.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">
+            View Projects
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+          <a href="#contact" class="btn-secondary">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PROJECTS ======== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <p class="section-label reveal">Selected Work</p>
+      <h2 class="section-heading reveal">Projects built with intent.</h2>
+
+      <div class="projects-grid">
+
+        <!-- 1. SupplySide -->
+        <article class="project-card reveal">
+          <div class="project-header">
+            <div class="project-meta">
+              <h3 class="project-name">SupplySide</h3>
+              <p class="project-tagline">Real-time crypto asset tracking dashboard with live data for 60+ assets — built
+                to surface actionable supply-side metrics in seconds.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Recharts</span>
+                <span class="tech-tag">Framer Motion</span>
+              </div>
+            </div>
+            <button class="project-toggle" aria-label="Expand project details">+</button>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>Context</h4>
+                  <p>Crypto markets move fast, but most trackers focus on price. SupplySide was built to answer a
+                    different question: what's happening with supply distribution, holder concentration, and on-chain
+                    flow across 60+ assets in a single view.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Contribution</h4>
+                  <p>Designed and built the entire frontend — data fetching layer with live API integration, interactive
+                    Recharts visualizations, responsive dashboard layout, and animated transitions using Framer Motion.
+                    Architected the data pipeline to normalize diverse API responses into a consistent schema.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Key Decision</h4>
+                  <p>Chose to dynamically fetch and display live metrics instead of hardcoding sample data. This
+                    required building a normalization layer for inconsistent API responses, but it meant the dashboard
+                    always shows real, defensible numbers — not demo data.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Outcome</h4>
+                  <p>A production-grade dashboard that tracks 60+ crypto assets with real-time data, interactive charts,
+                    and a clean interface that loads fast. The architecture allows adding new assets without touching
+                    the UI code.</p>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="https://supplyside.ravijha.co/" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  Live Site
+                </a>
+                <a href="https://github.com/m0rty01" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. CLB French Trainer -->
+        <article class="project-card reveal">
+          <div class="project-header">
+            <div class="project-meta">
+              <h3 class="project-name">CLB French Trainer</h3>
+              <p class="project-tagline">A structured SaaS platform for Canadian Language Benchmark exam preparation —
+                featuring AI writing evaluation, 80 mock TEF exams, and disciplined learning pathways.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">AI / LLM Integration</span>
+                <span class="tech-tag">TTS Audio</span>
+              </div>
+            </div>
+            <button class="project-toggle" aria-label="Expand project details">+</button>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>Context</h4>
+                  <p>Immigrants preparing for Canadian language benchmarks lack structured, affordable training tools.
+                    Most resources are scattered PDFs or expensive tutors. CLB French Trainer provides a complete,
+                    self-paced system covering all four exam skills: reading, writing, listening, and speaking.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Contribution</h4>
+                  <p>Built the full-stack application from scratch — structured daily learning pathways, 80 original
+                    mock TEF exams, AI-powered writing evaluation with TEF-equivalent scoring, audio listening practice
+                    with Text-to-Speech integration, and a freemium pricing model with Stripe-ready architecture.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Key Decision</h4>
+                  <p>Integrated AI writing evaluation to provide instant, scored feedback on French writing exercises.
+                    This replaced the need for human graders and made the platform viable as a self-serve tool — a
+                    critical requirement for the freemium model to work at scale.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Outcome</h4>
+                  <p>A fully functional SaaS with structured CLB 5 and CLB 7 pathways, daily grammar lessons, progress
+                    tracking, and a marketing site with exit-intent email capture. The app is deployed and actively used
+                    by French learners targeting Canadian immigration benchmarks.</p>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="https://clbfrench.ravijha.co" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  Live Site
+                </a>
+                <a href="https://github.com/m0rty01" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Radius Collapse -->
+        <article class="project-card reveal">
+          <div class="project-header">
+            <div class="project-meta">
+              <h3 class="project-name">Radius Collapse</h3>
+              <p class="project-tagline">A geo-guessing game where confidence is rewarded and overconfidence is punished
+                — built with Mapbox GL, Google Street View, and a custom circle-drawing mechanic.</p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Mapbox GL</span>
+                <span class="tech-tag">Google Street View</span>
+                <span class="tech-tag">Vite</span>
+              </div>
+            </div>
+            <button class="project-toggle" aria-label="Expand project details">+</button>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>Context</h4>
+                  <p>GeoGuessr is popular but its scoring is simple — closer is better. Radius Collapse flips the
+                    mechanic: you draw a circle on the map, and smaller circles yield exponentially more points. But if
+                    the target falls outside your circle, you score zero. It turns geography into a risk-reward
+                    decision.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Contribution</h4>
+                  <p>Built the entire game — custom circle-drawing interaction system on Mapbox GL (click-to-place,
+                    shift-drag-to-resize), Google Street View panorama integration, multi-round game flow with a
+                    30-second timer, scoring algorithm using Turf.js for geodesic calculations, and a Vercel KV-backed
+                    leaderboard.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Key Decision</h4>
+                  <p>Designed a custom circle-drawing UX that supports both click-to-place and shift-drag-to-resize,
+                    with a draggable handle for adjustment. This was more complex than a simple marker, but it's the
+                    core interaction that makes the game feel unique — the circle IS the guess.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Outcome</h4>
+                  <p>A polished, responsive web game with glassmorphic UI, animated HUD elements, automatic location
+                    fallback handling, and a persistent leaderboard. The scoring mechanic creates genuine tension —
+                    players must balance confidence against risk every round.</p>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="https://radiuscollapse.ravijha.co/" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  Live Site
+                </a>
+                <a href="https://github.com/m0rty01" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. CanImmigrate -->
+        <article class="project-card reveal">
+          <div class="project-header">
+            <div class="project-meta">
+              <h3 class="project-name">CanImmigrate</h3>
+              <p class="project-tagline">A privacy-first mobile app for Canadian immigration research — featuring an
+                offline CRS score estimator, pathway guides, and an AI chat advisor.</p>
+              <div class="project-tech">
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">Expo</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Expo Router</span>
+              </div>
+            </div>
+            <button class="project-toggle" aria-label="Expand project details">+</button>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>Context</h4>
+                  <p>People exploring Canadian immigration face fragmented, confusing government resources. CanImmigrate
+                    consolidates the key information into a single mobile app: CRS score estimation, pathway overviews,
+                    and an AI assistant — all without requiring an internet connection for core features.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Contribution</h4>
+                  <p>Built the complete cross-platform mobile app — CRS score calculator based on the publicly available
+                    IRCC formula, immigration pathway reference guides, structured onboarding flow with legal
+                    disclaimers, AI-powered chat using LLM integration, and a dark/light theme system. All data is
+                    stored locally on-device.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Key Decision</h4>
+                  <p>Chose to keep all user data strictly on-device with zero server-side storage. For an immigration
+                    app handling sensitive personal data (age, education, language scores), this was a non-negotiable
+                    trust requirement. It also simplified the architecture — no auth, no backend, no GDPR complexity.
+                  </p>
+                </div>
+                <div class="detail-block">
+                  <h4>Outcome</h4>
+                  <p>A production-ready mobile app available on iOS and Android with a polished onboarding experience,
+                    haptic feedback, animated transitions, and clear legal disclaimers. The privacy-first architecture
+                    became a differentiator, not just a constraint.</p>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="https://canimmigrate.ravijha.co/" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  Live Site
+                </a>
+                <a href="https://github.com/m0rty01" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. ContextIQ -->
+        <article class="project-card reveal">
+          <div class="project-header">
+            <div class="project-meta">
+              <h3 class="project-name">ContextIQ</h3>
+              <p class="project-tagline">A Chrome extension that overlays AI-generated explanations for real-time price
+                movements directly on trading websites like TradingView, Binance, and Yahoo Finance.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Chrome Extension (MV3)</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">n8n Workflows</span>
+                <span class="tech-tag">GPT-4</span>
+              </div>
+            </div>
+            <button class="project-toggle" aria-label="Expand project details">+</button>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>Context</h4>
+                  <p>Traders see price movements but rarely understand why something is moving in real time. ContextIQ
+                    solves this by injecting a concise, AI-generated explanation directly onto the trading page — no tab
+                    switching, no manual searching.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Contribution</h4>
+                  <p>Designed and built the entire system end-to-end: Chrome Manifest V3 extension with content scripts
+                    that detect active market symbols, n8n workflow backend that fetches news, sentiment data, and
+                    financial metrics, GPT-4 prompt engineering for concise market analysis, and a glassmorphic overlay
+                    UI that sits on top of trading pages.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Key Decision</h4>
+                  <p>Used n8n as the backend orchestration layer instead of building a custom server. This allowed rapid
+                    iteration on the data pipeline (news APIs, sentiment analysis, LLM calls) without redeploying code —
+                    changes to the analysis logic are workflow edits, not code commits.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Outcome</h4>
+                  <p>A working browser extension with real-time AI market analysis, deployed to Chrome with a marketing
+                    website. The n8n architecture proved valuable — the analysis pipeline was iterated dozens of times
+                    without touching the extension code. Privacy-first: no personal data is collected.</p>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="https://contextiq.ravijha.co/" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  Live Site
+                </a>
+                <a href="https://github.com/m0rty01" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== ABOUT ======== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <p class="section-label reveal">About</p>
+      <h2 class="section-heading reveal">How I think about building.</h2>
+      <div class="about-content reveal">
+        <p>I'm a full-stack engineer who builds tools that solve actual problems — not portfolio filler. Every project
+          on this page is something I shipped, used, or deployed to real users. I care about the gap between "it works
+          in a demo" and "it works in production."</p>
+        <p><strong>I gravitate toward problems where the full stack matters.</strong> Crypto dashboards where the data
+          pipeline and the visualization together determine whether someone makes a good trade. Language training apps
+          where the AI backend and the UX together determine whether someone sticks with daily practice. Browser
+          extensions where the workflow orchestration and the overlay UI have to work as one. In each case, the value
+          comes from owning the whole system.</p>
+        <p>My approach is pragmatic: I pick the simplest tool that handles the real constraints, I ship early, and I
+          iterate based on what actually breaks. I work across the stack — Next.js, React Native, Vite, vanilla JS,
+          Chrome extension APIs, Mapbox, n8n workflows, Supabase, and various AI integrations — not because they're
+          trendy, but because each one was the right answer for a specific problem.</p>
+        <p>I write code that other people can read, maintain, and extend. I think the best measure of engineering
+          quality isn't cleverness — it's how easily someone else can pick up where you left off.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SKILLS ======== -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <p class="section-label reveal">Tools & Technologies</p>
+      <h2 class="section-heading reveal">What I work with.</h2>
+      <div class="skills-grid reveal">
+        <span class="skill-tag">JavaScript / TypeScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Next.js</span>
+        <span class="skill-tag">React Native</span>
+        <span class="skill-tag">Expo</span>
+        <span class="skill-tag">Vite</span>
+        <span class="skill-tag">HTML / CSS</span>
+        <span class="skill-tag">Tailwind CSS</span>
+        <span class="skill-tag">Framer Motion</span>
+        <span class="skill-tag">Mapbox GL</span>
+        <span class="skill-tag">Recharts</span>
+        <span class="skill-tag">Chrome Extensions (MV3)</span>
+        <span class="skill-tag">n8n Workflow Automation</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">LLM / AI Integration</span>
+        <span class="skill-tag">Git / GitHub</span>
+        <span class="skill-tag">Vercel</span>
+        <span class="skill-tag">Supabase</span>
+        <span class="skill-tag">Responsive Design</span>
+        <span class="skill-tag">SEO</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CONTACT ======== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <p class="section-label reveal">Contact</p>
+      <h2 class="section-heading reveal">Let's talk.</h2>
+      <p class="contact-subtext reveal">I'm open to full-stack roles, freelance projects, and serious technical
+        conversations. If my work resonates, reach out — I respond to everything.</p>
+      <div class="contact-actions reveal">
+        <a href="mailto:ravijha01.97@gmail.com" class="btn-primary">
+          Send an Email
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+      <div class="contact-socials reveal">
+        <a href="https://github.com/m0rty01" class="social-link" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+          </svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/ravi-jha-a5b9a5a4/" class="social-link" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Ravi Jha. Built with HTML, CSS, and intent.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
