@@ -408,6 +408,82 @@
           </div>
         </article>
 
+        <!-- 6. SignalCheck -->
+        <article class="project-card reveal">
+          <div class="project-header">
+            <div class="project-meta">
+              <h3 class="project-name">SignalCheck</h3>
+              <p class="project-tagline">A full-stack content credibility analyzer that scores articles and text across
+                five signal dimensions — synthetic text detection, sourcing, linguistic risk, temporal context, and
+                structural framing.</p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">HuggingFace</span>
+                <span class="tech-tag">Supabase</span>
+                <span class="tech-tag">Vite</span>
+              </div>
+            </div>
+            <button class="project-toggle" aria-label="Expand project details">+</button>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>Context</h4>
+                  <p>Misinformation spreads fast, but most "fact-check" tools give a binary true/false verdict that
+                    oversimplifies the problem. SignalCheck takes a different approach: it analyzes content across five
+                    independent signal dimensions and presents a multi-dimensional credibility profile — not a single
+                    score, but a nuanced breakdown of where the red flags actually are.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Contribution</h4>
+                  <p>Built the entire system end-to-end: Express backend with a modular analyzer pipeline (synthetic
+                    text, sourcing, linguistic, temporal, structural), HuggingFace Inference API for ML-based text
+                    classification, NewsAPI integration for temporal corroboration, Cheerio-based URL content
+                    extraction,
+                    Supabase feedback storage, and a React + Vite frontend with a glassmorphic results dashboard.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Key Decision</h4>
+                  <p>Chose to preserve multi-dimensional signals rather than collapsing them into a single credibility
+                    score. When sourcing and linguistic signals disagree, that disagreement itself is informative. The
+                    aggregation layer explicitly surfaces these conflicts instead of averaging them away — a deliberate
+                    choice to favor honest uncertainty over false precision.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Outcome</h4>
+                  <p>A deployed analysis tool that accepts URLs or pasted text and returns a detailed credibility
+                    profile with confidence bands, actionable suggestions, and clear uncertainty disclaimers. The
+                    modular
+                    architecture allows adding new signal analyzers without touching the aggregation or frontend
+                    code.</p>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="https://signalcheck.ravijha.co/" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  Live Site
+                </a>
+                <a href="https://github.com/m0rty01/SignalCheck" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
