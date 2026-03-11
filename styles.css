@@ -455,7 +455,7 @@ button {
 }
 
 .project-card.expanded .project-detail {
-  max-height: 800px;
+  max-height: 2500px;
 }
 
 .project-detail-inner {
