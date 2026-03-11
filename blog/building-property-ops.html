@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecting PropertyOps — Ravi Jha</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/png" href="../favicon.png">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">raviJha<span>.</span></a>
+    </div>
+  </nav>
+
+  <main class="post-container">
+    <a href="../index.html#writing" class="post-back-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Back to Writing
+    </a>
+
+    <header class="post-header">
+      <h1 class="post-title">Architecting PropertyOps: A deep dive</h1>
+      <div class="post-meta">Published on March 10, 2026 • 8 min read</div>
+    </header>
+
+    <article class="post-content">
+      <p>PropertyOps was born out of a simple realization: property management data is fragmented. Managers, workers, and tenants often use three different systems that don't talk to each other. This case study looks at how I built a unified platform to solve this.</p>
+      
+      <h2>The Tech Stack</h2>
+      <p>I chose Next.js 15 for its robust routing and server-side capabilities. Coupled with Prisma ORM and PostgreSQL, it allowed for a type-safe data layer that scaled easily as I added more complex relations between units, tenants, and maintenance tickets.</p>
+      
+      <h2>Multi-Role Authorization</h2>
+      <p>One of the biggest challenges was ensuring each user role only saw what they were supposed to. I implemented a robust RBAC (Role-Based Access Control) system that manages permissions at both the API level and the UI component level.</p>
+
+      <pre><code>// Prisma schema snippet for multi-role
+enum Role {
+  MANAGER
+  WORKER
+  TENANT
+}
+
+model User {
+  id    String @id @default(cuid())
+  email String @unique
+  role  Role   @default(TENANT)
+}</code></pre>
+
+      <h2>Visualizing Maintenance Trends</h2>
+      <p>Data is useless if you can't read it. I integrated Recharts to provide managers with live analytics on ticket resolution times, category breakdowns (plumbing vs. electrical), and worker efficiency. This transformed PropertyOps from a simple tracker into a decision-making tool.</p>
+
+      <p>Building PropertyOps taught me the importance of a clean data model before even touching the UI. When the foundation is solid, building features becomes a breeze.</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Ravi Jha. Built with HTML, CSS, and intent.</p>
+    </div>
+  </footer>
+</body>
+</html>
