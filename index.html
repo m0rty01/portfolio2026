@@ -9,6 +9,7 @@
     content="Full-stack engineer who builds real products — crypto dashboards, geo-games, browser extensions, and mobile apps. Clean code, fast interfaces, honest execution.">
   <meta name="author" content="Ravi Jha">
   <meta name="theme-color" content="#0a0a0f">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -37,8 +38,8 @@
         <p class="hero-greeting">Full Stack Engineer</p>
         <h1 class="hero-title">I build products<br>that <span class="accent">work.</span></h1>
         <p class="hero-description">I'm Ravi — a full-stack engineer who ships real tools: crypto dashboards tracking
-          60+ live assets, geo-guessing games with Mapbox, AI-powered browser extensions, and mobile apps used for
-          Canadian immigration prep. I care about clarity, speed, and code that doesn't need excuses.</p>
+          60+ live assets, geo-guessing games with Mapbox, AI-powered browser extensions, multi-role property management
+          platforms, and mobile apps for Canadian immigration prep. I care about clarity, speed, and code that doesn't need excuses.</p>
         <div class="hero-actions">
           <a href="#projects" class="btn-primary">
             View Projects
@@ -484,6 +485,68 @@
           </div>
         </article>
 
+
+        <!-- 7. PropertyOps -->
+        <article class="project-card reveal">
+          <div class="project-header">
+            <div class="project-meta">
+              <h3 class="project-name">PropertyOps</h3>
+              <p class="project-tagline">A multi-role property management platform with dedicated dashboards for managers, workers, and tenants — covering maintenance ticketing, rent tracking, and live property analytics.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Prisma</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">Framer Motion</span>
+                <span class="tech-tag">Recharts</span>
+              </div>
+            </div>
+            <button class="project-toggle" aria-label="Expand project details">+</button>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>Context</h4>
+                  <p>Property management involves three distinct groups — managers, maintenance workers, and tenants — each with different information needs. Most tools either try to serve everyone poorly or require separate systems that don't talk to each other. PropertyOps was built to give each role a purpose-built interface while keeping the underlying data model unified.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Contribution</h4>
+                  <p>Designed and built the full-stack platform from scratch — role-based authentication and routing, a Manager dashboard with KPI cards and Recharts analytics for maintenance trends and issue categorization, a Worker dashboard for ticket management and hour logging, and a Tenant portal for submitting and tracking maintenance requests. Implemented rent tracking with overdue alerts, unit occupancy management, and a centralized maintenance board with priority queuing. Built on Next.js with Prisma ORM and a PostgreSQL database, deployed to Vercel.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Key Decision</h4>
+                  <p>Chose to build role-specific dashboards sharing a single Prisma data layer rather than separate apps. This meant one database schema and one API surface for all three user types — managers, workers, and tenants see different views, but the underlying data is consistent and never duplicated. It also made the authorization logic explicit and auditable throughout the app.</p>
+                </div>
+                <div class="detail-block">
+                  <h4>Outcome</h4>
+                  <p>A deployed, production-ready platform with fully functional dashboards for all three roles, interactive analytics for property health and maintenance trends, and a responsive mobile-first UI with smooth Framer Motion transitions. The architecture is extensible — adding new roles or analytics views requires no changes to the core data model.</p>
+                </div>
+              </div>
+              <div class="project-links">
+                <a href="https://propertyops.ravijha.co/" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  Live Site
+                </a>
+                <a href="https://github.com/m0rty01/PropertyOps" class="project-link" target="_blank" rel="noopener">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -536,6 +599,8 @@
         <span class="skill-tag">Git / GitHub</span>
         <span class="skill-tag">Vercel</span>
         <span class="skill-tag">Supabase</span>
+        <span class="skill-tag">Prisma</span>
+        <span class="skill-tag">PostgreSQL</span>
         <span class="skill-tag">Responsive Design</span>
         <span class="skill-tag">SEO</span>
       </div>
