@@ -665,13 +665,14 @@ button {
     top: var(--nav-height);
     left: 0;
     right: 0;
-    bottom: 0;
-    background: rgba(10, 10, 15, 0.97);
-    backdrop-filter: blur(20px);
+    height: calc(100vh - var(--nav-height));
+    background: #0a0a0f; /* Dark solid background for clarity */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--space-2xl);
+    gap: var(--space-xl);
+    padding-bottom: 20vh; /* Shift content up slightly for balance */
+    z-index: 1000;
   }
 
   .nav-links.open {
@@ -680,6 +681,14 @@ button {
 
   .nav-links a {
     font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .nav-cta {
+    font-size: var(--fs-lg);
+    width: auto;
+    text-align: center;
   }
 
   .nav-toggle {
