@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SupplySide: Mastering Token Velocity and Dilution Risk — Ravi Jha</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/png" href="../favicon.png">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">raviJha<span>.</span></a>
+    </div>
+  </nav>
+
+  <main class="post-container">
+    <a href="../index.html#writing" class="post-back-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Back to Writing
+    </a>
+
+    <header class="post-header">
+      <h1 class="post-title">SupplySide: Mastering Token Velocity and Dilution Risk</h1>
+      <div class="post-meta">Published on March 16, 2026 • 12 min read</div>
+    </header>
+
+    <article class="post-content">
+      <p>In the decentralized finance ecosystem, price action remains the primary focus of retail sentiment. However, sophisticated market participants understand that price is often a lagging indicator of a far more potent force: **Supply Velocity.** Information asymmetry regarding token unlocks, vesting cliffs, and emissions schedules creates a significant disadvantage for the average investor. SupplySide was architected to bridge this gap through deterministic data modeling and transparent risk scoring.</p>
+      
+      <h2>The Problem: Invisible Sell Pressure</h2>
+      <p>Traditional market aggregators prioritize "Circulating Supply" and "Total Supply"—static metrics that offer zero insight into temporal risk. An asset might appear stable today, only to face a 5% dilution event next Tuesday due to a venture capital vesting cliff. Most of this data is buried in technical whitepapers or PDF legal disclosures, making it functionally invisible to real-time screening.</p>
+      
+      <h2>Core Architecture: The Normalization Engine</h2>
+      <p>The primary technical challenge in building SupplySide was the lack of a standardized schema for tokenomics. Every project uses a different emission model: some are linear daily (e.g., Celestia), some are monthly cliffs (e.g., Starknet), and some are hybrid models with "ecosystem" pools that emit based on opaque governance triggers.</p>
+      
+      <p>I engineered a **TypeScript-based Normalization Engine** that transforms these disparate inputs into a unified temporal flow. This involved creating a custom type system to handle different "Supply event" categories:</p>
+
+      <pre><code>type EmissionModel = 'LINEAR' | 'CLIFF' | 'HYBRID' | 'STOCHASTIC';
+
+interface TokenomicsProfile {
+  assetId: string;
+  totalCap: number;
+  initialCirculating: number;
+  schedules: {
+    type: EmissionModel;
+    startDate: number; // Unix timestamp
+    duration: number; // For linear
+    amount: number;
+    interval?: number; // For cliff
+  }[];
+}</code></pre>
+
+      <p>The engine runs forward-looking simulations for each asset, projecting the supply curve exactly 24 months into the future. This allows users to visualize not just the *if*, but the *exactly when* of market dilution.</p>
+
+      <h2>The 4-Factor Risk Model</h2>
+      <p>SupplySide doesn't rely on "black-box" AI for its rankings. Instead, it uses a deterministic 4-factor scoring model that rewards transparency and punishes aggressive emissions:</p>
+      <ul>
+        <li><strong>Forward Supply Growth:</strong> The percentage of new supply entering the market over the next 180 days.</li>
+        <li><strong>Unlock Concentration:</strong> The ratio of "cliff" events (high impact) vs. "linear" events (low impact) in the near term.</li>
+        <li><strong>Emissions Velocity:</strong> The rate of daily issuance relative to the current circulating base.</li>
+        <li><strong>Historical Absorption:</strong> A calculated metric of how the market has historically performed during similar previous dilution events.</li>
+      </ul>
+
+      <h2>Frontend Orchestration with Next.js & Recharts</h2>
+      <p>Visualizing 24 months of multi-asset data requires a highly optimized frontend. I utilized **Next.js 15 Server Components** to pre-process the heavy mathematical projections, serving small, hydration-ready JSON bundles to the client. For the visualization, I built custom interactive compositions using **Recharts**, allowing users to scrub across a timeline and see exactly how market capitalization must grow just to maintain the current price as supply expands.</p>
+
+      <pre><code>// Scrubbing timeline logic implementation
+const SupplyProjectionChart = ({ data }) => (
+  &lt;AreaChart data={data}&gt;
+    &lt;Defs&gt;
+      &lt;linearGradient id="colorSupply" x1="0" y1="0" x2="0" y2="1"&gt;
+        &lt;stop offset="5%" stopColor="#5eead4" stopOpacity={0.1}/&gt;
+        &lt;stop offset="95%" stopColor="#5eead4" stopOpacity={0}/&gt;
+      &lt;/linearGradient&gt;
+    &lt;/Defs&gt;
+    &lt;Area 
+      type="monotone" 
+      dataKey="projectedSupply" 
+      stroke="#5eead4" 
+      fillOpacity={1} 
+      fill="url(#colorSupply)" 
+    /&gt;
+    &lt;Tooltip content={&lt;CustomTooltip /&gt;} /&gt;
+  &lt;/AreaChart&gt;
+);</code></pre>
+
+      <h2>Conclusion: Engineering for Market Honesty</h2>
+      <p>SupplySide is more than just a dashboard; it's a tool for market honesty. By transforming obscure whitepaper math into clear, interactive engineering, we can eliminate the "surprises" that lead to retail losses. The project remains a study in how full-stack engineering can be used to democratize complex financial data.</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Ravi Jha. Built with HTML, CSS, and intent.</p>
+    </div>
+  </footer>
+</body>
+</html>
