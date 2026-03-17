@@ -26,31 +26,55 @@
     </header>
 
     <article class="post-content">
-      <p>PropertyOps was born out of a simple realization: property management data is fragmented. Managers, workers, and tenants often use three different systems that don't talk to each other. This case study looks at how I built a unified platform to solve this.</p>
+      <p>PropertyOps was conceived as a vertical SaaS solution to a horizontal data problem: the fragmentation of operational data in mid-to-high density residential management. Most platforms prioritize either the tenant experience or the manager's ledger, leaving the actual operational workforce—maintenance staff and contractors—to rely on disparate spreadsheets or verbal communication. I architected PropertyOps to solve this through a unified, role-aware event bus and a highly relational data model.</p>
       
-      <h2>The Tech Stack</h2>
-      <p>I chose Next.js 15 for its robust routing and server-side capabilities. Coupled with Prisma ORM and PostgreSQL, it allowed for a type-safe data layer that scaled easily as I added more complex relations between units, tenants, and maintenance tickets.</p>
+      <h2>1. The Relational Backbone: Precision Database Modeling</h2>
+      <p>The core of PropertyOps is a PostgreSQL database managed via **Prisma ORM**. Unlike simpler "unit-tenant" models, I engineered a hierarchical schema that accounts for the complex reality of property ownership and management. The challenge was maintaining performance as we traversed from a `Property` level down to individual `MaintenanceTicket` and `Transaction` logs.</p>
+
+      <p>I utilized recursive relations and strict referential integrity to ensure that data remains consistent even when assets are transferred or tenancies are terminated. To optimize for the Management Dashboard, I implemented composite indexes on high-churn tables like `MaintenanceTicket` (indexing `status` and `priority` alongside `propertyId`).</p>
       
-      <h2>Multi-Role Authorization</h2>
-      <p>One of the biggest challenges was ensuring each user role only saw what they were supposed to. I implemented a robust RBAC (Role-Based Access Control) system that manages permissions at both the API level and the UI component level.</p>
-
-      <pre><code>// Prisma schema snippet for multi-role
-enum Role {
-  MANAGER
-  WORKER
-  TENANT
-}
-
-model User {
-  id    String @id @default(cuid())
-  email String @unique
-  role  Role   @default(TENANT)
+      <pre><code>// Optimized Schema for Operational Flow
+model MaintenanceTicket {
+  id          String   @id @default(cuid())
+  title       String
+  status      Status   @default(OPEN)
+  priority    Priority @default(MEDIUM)
+  propertyId  String
+  property    Property @relation(fields: [propertyId], references: [id])
+  assignedTo  String?
+  worker      User?    @relation("WorkerTasks", fields: [assignedTo], references: [id])
+  reporterId  String
+  reporter    User     @relation("ReportedBy", fields: [reporterId], references: [id])
+  
+  @@index([propertyId, status])
+  @@index([assignedTo])
 }</code></pre>
+      
+      <h2>2. Engineering the Role-Based Access Control (RBAC)</h2>
+      <p>With three distinct user roles (Managers, Workers, Tenants), security couldn't be an afterthought. I implemented a robust RBAC system that operates at multiple layers of the stack:</p>
+      <ul>
+        <li><strong>Middleware Layer:</strong> Protecting Next.js App Router segments using JWT session headers to prevent unauthorized route access.</li>
+        <li><strong>API Layer:</strong> Validating that a User's role ID matches the required permissions for specific CRUD operations (e.g., a Worker can PATCH a ticket status but not DELETE a Property).</li>
+        <li><strong>UI Layer:</strong> Using tailored React components that only render specific dashboard modules based on the active session's permission set.</li>
+      </ul>
 
-      <h2>Visualizing Maintenance Trends</h2>
-      <p>Data is useless if you can't read it. I integrated Recharts to provide managers with live analytics on ticket resolution times, category breakdowns (plumbing vs. electrical), and worker efficiency. This transformed PropertyOps from a simple tracker into a decision-making tool.</p>
+      <h2>3. Real-Time Dashboard Orchestration</h2>
+      <p>For property managers, static data is dead data. I built the Analytics Engine using **Recharts**, but the real engineering lies in the data aggregation layer. I wrote optimized Prisma queries that perform count and sum aggregations at the database level rather than the application level, significantly reducing the "Time to Interactive" for large portfolios.</p>
+      
+      <p>To ensure a premium feel, I used **Framer Motion** to animate the transitions between dashboard tabs, creating a spatial mental model for the user that makes navigating complex data feel fluid and intuitive.</p>
 
-      <p>Building PropertyOps taught me the importance of a clean data model before even touching the UI. When the foundation is solid, building features becomes a breeze.</p>
+      <pre><code>// Aggregation logic for Manager Insights
+const metrics = await prisma.maintenanceTicket.groupBy({
+  by: ['status'],
+  _count: { _all: true },
+  where: { property: { managerId: session.user.id } }
+});</code></pre>
+
+      <h2>4. Scalability and Performance</h2>
+      <p>Building for Next.js 15 allowed me to leverage **Server Actions** for form submissions (like rent payment and ticket reporting), reducing client-side JavaScript overhead. I also implemented aggressive caching strategies for static property assets while keeping the maintenance event bus highly reactive.</p>
+
+      <p>The result is a platform that handles the complexity of property management with the speed of a modern single-page application, proving that "enterprise-grade" doesn't have to mean "slow and clunky."</p>
+
     </article>
   </main>
 
